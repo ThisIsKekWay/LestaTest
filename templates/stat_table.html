@@ -1,28 +1,36 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>TF-IDF Table</title>
-</head>
-<body>
-    <h1>TF-IDF Table</h1>
-    <a href="/">На главную</a>
+{% extends "base.html" %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
     <table>
+
         <thead>
-            <tr>
-                <th>Word</th>
-                <th>TF</th>
-                <th>IDF</th>
-            </tr>
+        <tr>
+            <th>Word</th>
+            <th>TF</th>
+            <th>IDF</th>
+        </tr>
         </thead>
         <tbody>
-            {% for word, data in data %}
+        {% for word, data in data %}
             <tr>
                 <td>{{ word }}</td>
                 <td>{{ data.tf }}</td>
                 <td>{{ data.idf }}</td>
             </tr>
-            {% endfor %}
+        {% endfor %}
         </tbody>
     </table>
-</body>
-</html>
+{% endblock %}

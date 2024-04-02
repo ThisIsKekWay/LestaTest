@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Тестовое задание</title>
+</head>
+<body>
+{% block head %}
+    <div style="display: flex; flex-direction: row; justify-content: space-around">
+        <div style="display: flex; flex-direction: column">
+            <h1>TF-IDF Отчет для всех файлов.</h1>
+        <div style="display: flex; flex-direction: row">
+            <a href="/" style="align-self: center;
+            margin: 1rem;
+            padding: 0.5rem;
+            background-color: teal;
+            color: aliceblue;
+            text-decoration: none;
+            font-size: 1.5rem;
+            border: black solid 1px;
+            border-radius: 5px;">К форме</a>
+
+            <a href="/stat" style="align-self: center;
+            margin: 1rem;
+            padding: 0.5rem;
+            background-color: teal;
+            color: aliceblue;
+            text-decoration: none;
+            font-size: 1.5rem;
+            border: black solid 1px;
+            border-radius: 5px;">К статистике</a>
+
+            <a href="/drop" style="align-self: center;
+            margin: 1rem;
+            padding: 0.5rem;
+            background-color: coral;
+            color: wheat;
+            text-decoration: none;
+            font-size: 1.5rem;
+            border: black solid 1px;
+            border-radius: 5px;">Сбросить</a>
+        </div>
+            {% block content %}
+
+            {% endblock %}
+        </div>
+
+        <div>
+            <h2>Загруженные файлы:</h2>
+            <ul>
+                {% if not files %}
+                    <li>Файлы не найдены</li>
+                {% else %}
+                    {% for file in files %}
+                        <li><p>{{ file }}</p></li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+
+</body>
+</html>
